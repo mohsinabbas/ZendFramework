@@ -1,0 +1,25 @@
+<?php
+/*echo '<pre>';
+print_r($this->products);
+echo '</pre>';
+*/
+$this->title = "Products List";
+$this->headTitle($this->title);
+?>
+<p><a href="<?php echo $this->url(array('controller'=>'cart','action'=>'add'));?>">Add new album</a></p>
+
+<table class="">
+<?php foreach($this->products as $products) : ?>
+
+    <tr>
+        <td><?php echo $this->escape($products->name);?></td>
+        <td><?php echo $this->escape($products->details);?></td>
+        <td><?php echo $this->escape($products->image);?></td>
+        
+        <td>
+        <a href="<?php echo $this->url(array('controller'=>'cart','action'=>'edit', 'id'=>$products->id));?>">Edit</a>
+        <a href="<?php echo $this->url(array('controller'=>'cart','action'=>'delete', 'id'=>$products->id));?>">Delete</a>    
+        </td>
+	</tr>    
+<?php endforeach; ?>   
+</table>
